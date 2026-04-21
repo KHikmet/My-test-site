@@ -29,3 +29,8 @@ if __name__ == "__main__":
     port = int(os.getenv("PORT", 5000))
     logging.info(f"Starting service on port {port}")
     app.run(host="0.0.0.0", port=port)
+@app.route("/debug")
+def debug():
+    return {
+        "env": dict(os.environ)
+    }
